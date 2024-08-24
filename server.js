@@ -35,6 +35,13 @@ app.post("/convert", (req, res) => {
   }, 2000);
 });
 
+let currentTemperature = 20;
+
+app.get("/get-temperature", (req, res) => {
+  currentTemperature += Math.random() * 2 - 1;
+  res.send(currentTemperature.toFixed(1) + "°C");
+});
+
 app.listen(3000, () => {
   console.log("Server listening on port 3000");
 });
